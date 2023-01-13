@@ -11,8 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script src="https://kit.fontawesome.com/8b0e0e11a3.js" crossorigin="anonymous"></script>
-		<script
-			src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -118,29 +117,32 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Next</h2>
-								<!-- <form method="post" action="index.php">
+								<form id='contact-form' method="post" action="">
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
 											<input type="text" name="name" id="name" />
+											<span class="contact-form-errors" id="name-error"></span>
 										</div>
 										<div class="field half">
 											<label for="email">Email</label>
 											<input type="text" name="email" id="email" />
+											<span class="contact-form-errors" id="email-error"></span>
 										</div>
 										<div class="field">
 											<label for="message">Message</label>
 											<textarea name="message" id="message" rows="4"></textarea>
+											<span class="contact-form-errors" id="message-error"></span>
 										</div>
 									</div>
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="submit" value="Send Message" class="primary" id="contact-form-submit" /></li>
 										<li><input type="reset" value="Reset" /></li>
 									</ul>
-								</form> -->
-								<span class="image main"><img src="images/background.png" alt="" /></span>
+								</form>
+								<!-- <span class="image main"><img src="images/background.png" alt="" /></span>
 								<h6>Contact Me</h6>
-								<p>Email: yizhoucatherinezhang@gmail.com</p>
+								<p>Email: yizhoucatherinezhang@gmail.com</p> -->
 								<ul class="icons">
 									<li><a href="https://www.linkedin.com/in/yizhoucatherinezhang/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 									<li><a href="https://github.com/OneBoatFly" class="icon brands fa-github"><span class="label">GitHub</span></a></li>

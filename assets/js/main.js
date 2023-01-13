@@ -385,6 +385,73 @@
 
 			}
 
+		// Email
+		$window.ready(() => {
+			emailjs.init("VVQFupMLrgU4YFL0X");
+			let form = document.getElementById("contact-form");
+			form.addEventListener('submit', (e) => {
+				e.preventDefault()
+								
+				let params = {
+					name: document.querySelector("#name").value,
+					email: document.querySelector("#email").value,
+					message: document.querySelector("#message").value
+				};
+				let name = document.querySelector("#name").value
+				let email = document.querySelector("#email").value
+				let message = document.querySelector("#message").value
+
+				let nameError = ''
+				let emailError = ''
+				let messageError = ''
+				if (!name.length) nameError = 'Please enter your name.'
+				if (!email.length) emailError = 'Please enter your email.'
+				if (!message.length) messageError = 'Missing message.'
+
+				if (nameError.length || emailError.length || messageError ) {
+					let nameErrorSpan = document.getElementById("name-error")
+					if (nameError.length) {
+						nameErrorSpan.innerText = nameError;
+					}
+
+					let emailErrorSpan = document.getElementById("email-error")
+					if (emailError.length) {
+						emailErrorSpan.innerText = emailError;
+					}
+
+					let messageErrorSpan = document.getElementById("message-error")
+					if (messageError.length) {
+						messageErrorSpan.innerText = messageError;
+					}
+					
+					setTimeout(() => {
+						nameErrorSpan.innerText = ""
+						emailErrorSpan.innerText = ''
+						messageErrorSpan.innerText = ''
+					}, 3000)
+
+				} else {
+					document.getElementById("contact-form-submit").value = "Sending";
+					emailjs.send("service_1x8we85", "contact_form", params)
+						.then(() => {
+							document.getElementById("contact-form").reset();
+							document.getElementById("contact-form-submit").value = "Sent!";
+							document
+								.getElementById("contact-form-submit")
+								.setAttribute("disabled", "true");
+						},
+							() => {
+								let submit = document.getElementById("contact-form-submit")
+								submit.setAttribute("disabled", "true");
+								submit.value = "Failed to send";
+								setTimeout(() => (submit.value = "Send Message"), 2000);
+								setTimeout(() => (submit.removeAttribute("disabled")), 2000);
+							})
+				}
+			})
+		})
+
+
 		// Initialize.
 
 			// Hide main, articles.
